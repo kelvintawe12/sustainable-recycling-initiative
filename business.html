@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model - Sustainable Recycling Initiative</title>
+    <meta name="description" content="Explore the business model of our initiative, focusing on organic fertilizers, biofuels, waste management services, and more.">
+    <meta name="author" content="Tawe Kelvin and Mr. Didas (Environmental Engineer)">
+    <meta name="keywords" content="business model, sustainable recycling, revenue streams, waste management, cocoa industry">
+    <meta name="robots" content="index, follow">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            color: #fff;
+        }
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        header nav ul li {
+            margin: 0 20px;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        main {
+            padding: 40px 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+        footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="future-plans.html">Future Plans</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="business-model">
+            <div class="container">
+                <h2>Business Model</h2>
+                <p>Revenue Streams:</p>
+                <ul>
+                    <li>Organic Fertilisers: Sold to local farmers and agricultural cooperatives, improving crop yields and soil health.</li>
+                    <li>Biofuels: Provided to households and businesses, offering a cleaner and more sustainable energy source.</li>
+                    <li>Building Materials: Sold to construction companies and developers, providing a cost-effective alternative to traditional bricks.</li>
+                    <li>Waste Collection Services: Fees from municipalities and private companies for waste collection and management.</li>
+                </ul>
+                <div id="business-model-chart">
+                    <h3>Business Model Chart</h3>
+                    <img src="IMAGES/Solid Waste Management Services in India _ Saahas Zero Waste.jpeg" alt="Business Model Chart" style="width:100%;"/>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="business.html">Business Model</a></li>
+                    <li><a href="future-plans.html">Future Plans</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-api-content">
+                <h3>Waste Management Fact</h3>
+                <p id="api-content">Loading fact...</p>
+            </div>
+        </div>
+        <div class="container">
+            <p>&copy; 2023 Sustainable Recycling Initiative. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiUrl = 'https://google-data.p.rapidapi.com/email/airaudoeduardo@gmail.com'; 
+            const apiKey = '97f8fbbd0emshbcc3d0c6a2a0971p1308c8jsn53aced019962'; 
+
+            const headers = {
+                'x-rapidapi-host': 'google-data.p.rapidapi.com',
+                'x-rapidapi-key': apiKey,
+            };
+
+            fetch(apiUrl, { method: 'GET', headers: headers })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const { name, email, image_url } = data;
+                    document.getElementById('api-content').innerHTML = `
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <img src="${image_url}" alt="User Profile Image" style="width:100px;height:100px;border-radius:50%;"/>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('api-content').textContent = 'Unable to load user profile at this time.';
+                });
+        });
+    </script>
+</body>
+</html>

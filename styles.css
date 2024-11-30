@@ -187,3 +187,11 @@ footer p {
         flex-direction: column;
     }
 }
+/* make footer images round and smaller */
+.footer-images img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    width: 50px;
+}

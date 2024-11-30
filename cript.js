@@ -102,7 +102,7 @@ backToTopButton.addEventListener('click', () => {
 
 // Toggle mobile navigation menu
 const navToggle = document.createElement('button');
-navToggle.textContent = '☰';
+// navToggle.textContent = '☰';
 navToggle.classList.add('nav-toggle');
 document.querySelector('nav .container').prepend(navToggle);
 
